@@ -36,17 +36,17 @@ const CardWeather = ({ weather, setWeather }) => {
   };
 
   let weatherIcons = {
-    "01n": "/public/weatherIcons/clear-sky.png",
-    "01d": "/public/weatherIcons/clear-sky.png",
-    "02d": "/public/weatherIcons/few-clouds.png",
-    "03d": "/public/weatherIcons/scattered-clouds.png",
-    "04d": "/public/weatherIcons/broken-clouds.png",
-    "09d": "/public/weatherIcons/shower-rain.png",
-    "10d": "/public/weatherIcons/rain.png",
-    "10n": "/public/weatherIcons/rain.png",
-    "11d": "/public/weatherIcons/thunderstorm.png",
-    "13d": "/public/weatherIcons/snow.png",
-    "50d": "/public/weatherIcons/mist.png",
+    "01n": "/clear-sky.png",
+    "01d": "/clear-sky.png",
+    "02d": "/few-clouds.png",
+    "03d": "/scattered-clouds.png",
+    "04d": "/broken-clouds.png",
+    "09d": "/shower-rain.png",
+    "10d": "/rain.png",
+    "10n": "/rain.png",
+    "11d": "/thunderstorm.png",
+    "13d": "/snow.png",
+    "50d": "/mist.png",
   };
 
   return (
@@ -103,19 +103,19 @@ const CardWeather = ({ weather, setWeather }) => {
             {/*Sección inferior */}
             <article className="bg-white/50 grid grid-cols-[repeat(3,1fr)] rounded-2xl px-4 py-3 text-black font-bold sm:grid-cols-1 sm:grid-rows-3 shadow-2xl ">
               <WeatherStats
-                icon={"/weatherStatsIcons/wind.png"}
+                icon={"/wind.png"}
                 value={weather.wind.speed}
                 unit={"m/s"}
               />
               <div className="border-x-2 border-slate-600 px-4 py-5 flex item-center sm:border-x-0 sm:border-y-2 sm:px-0">
                 <WeatherStats
-                  icon={"/weatherStatsIcons/humidity.png"}
+                  icon={"/humidity.png"}
                   value={weather.main.humidity}
                   unit={"%"}
                 />
               </div>
               <WeatherStats
-                icon={"/weatherStatsIcons/pressure.png"}
+                icon={"/pressure.png"}
                 value={weather.main.pressure}
                 unit={"hPa"}
               />

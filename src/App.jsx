@@ -6,19 +6,19 @@ import LoadApp from "./components/LoadApp";
 
 function App() {
   const [weather, setWeather] = useState(null);
-  console.log();
+
   let weatherBg = {
-    "clear sky": "/public/weatherBg/bgSunDay.jpeg",
-    "few clouds": "/public/weatherBg/few-clouds.jpeg",
-    "broken clouds": "/public/weatherBg/broken-clouds.jpeg",
-    "overcast clouds": "/public/weatherBg/broken-clouds.jpeg",
-    "shower rain": "/public/weatherBg/shower-rain.jpeg",
-    "scattered clouds": "/public/weatherBg/scattered-clouds.jpeg",
-    rain: "/public/weatherBg/rain.jpeg",
-    "light rain": "/public/weatherBg/rain.jpeg",
-    thunderstorm: "/public/weatherBg/thunderstorm.jpeg",
-    snow: "/public/weatherBg/snow.jpeg",
-    mist: "/public/weatherBg/mist.jpeg",
+    "clear sky": "/bgSunDay.jpeg",
+    "few clouds": "/few-clouds.jpeg",
+    "broken clouds": "/broken-clouds.jpeg",
+    "overcast clouds": "/broken-clouds.jpeg",
+    "shower rain": "/shower-rain.jpeg",
+    "scattered clouds": "/scattered-clouds.jpeg",
+    rain: "/rain.jpeg",
+    "light rain": "/rain.jpeg",
+    thunderstorm: "/thunderstorm.jpeg",
+    snow: "/snow.jpeg",
+    mist: "/mist.jpeg",
   };
 
   const success = (pos) => {
@@ -40,9 +40,15 @@ function App() {
 
   return (
     <main
-      style={{
-        backgroundImage: `url(${weatherBg[weather?.weather[0].description]})`,
-      }}
+      style={
+        weather === null
+          ? console.log("no")
+          : {
+              backgroundImage: `url(${
+                weatherBg[weather.weather[0].description]
+              })`,
+            }
+      }
       className={`font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-top gap-6 sm:bg-cover ${
         weather === null ? "" : "p-3"
       }`}
