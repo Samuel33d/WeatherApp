@@ -55,7 +55,7 @@ const CardWeather = ({ weather, setWeather }) => {
         <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px]">
           <form
             action=""
-            className="form grid grid-cols-[1fr_auto] gap-2 text-black min-w-[300px] sm:w-[400px] shadow-2xl"
+            className="form grid grid-cols-[1fr_auto] gap-3 text-black min-w-[320px] sm:w-[500px] shadow-2xl "
             onSubmit={handleSearch}
           >
             <input
