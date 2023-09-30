@@ -3,22 +3,31 @@ import "./App.css";
 import axios from "axios";
 import CardWeather from "./components/CardWeather";
 import LoadApp from "./components/LoadApp";
+import { BsFillMoonFill } from "react-icons/bs";
+import { BsSunFill } from "react-icons/bs";
 
 function App() {
   const [weather, setWeather] = useState(null);
 
+  const [isLightMode, setIsLightMode] = useState(true);
+
+  const handleChangeTheme = () => {
+    setIsLightMode(!isLightMode);
+  };
+
   let weatherBg = {
-    "clear sky": "/bgSunDay.jpeg",
-    "few clouds": "/few-clouds.jpeg",
-    "broken clouds": "/broken-clouds.jpeg",
-    "overcast clouds": "/broken-clouds.jpeg",
-    "shower rain": "/shower-rain.jpeg",
-    "scattered clouds": "/scattered-clouds.jpeg",
-    rain: "/rain.jpeg",
-    "light rain": "/rain.jpeg",
-    thunderstorm: "/thunderstorm.jpeg",
-    snow: "/snow.jpeg",
-    mist: "/mist.jpeg",
+    "01n": "/bgSunDay.jpeg",
+    "01d": "/bgSunDay.jpeg",
+    "02d": "/bgfew-clouds.jpeg",
+    "03d": "/bgscattered-clouds.jpeg",
+    "04d": "/bgbroken-clouds.jpeg",
+    "04n": "/bgbroken-clouds.jpeg",
+    "09d": "/bgshower-rain.jpeg",
+    "10d": "/bgrain.jpeg",
+    "10n": "/bgrain.jpeg",
+    "11d": "/bgthunderstorm.jpeg",
+    "13d": "/bgsnow.jpeg",
+    "50d": "/bgmist.jpeg",
   };
 
   const success = (pos) => {
@@ -42,21 +51,33 @@ function App() {
     <main
       style={
         weather === null
-          ? console.log("no")
+          ? { backgroundColor: "black" }
           : {
-              backgroundImage: `url(${
-                weatherBg[weather.weather[0].description]
-              })`,
+              backgroundImage: `url(${weatherBg[weather.weather[0].icon]})`,
             }
       }
-      className={`font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-top gap-6 sm:bg-cover ${
+      className={`${
+        isLightMode ? "" : "dark"
+      } font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-top gap-6 sm:bg-cover ${
         weather === null ? "" : "p-3"
       }`}
     >
       {weather === null ? (
         <LoadApp />
       ) : (
-        <CardWeather weather={weather} setWeather={setWeather} />
+        <>
+          <button
+            onClick={handleChangeTheme}
+            className="bg-white dark:bg-black/40 p-4 rounded-[100%] transition-all"
+          >
+            {isLightMode ? (
+              <BsFillMoonFill className="fill-black text-2xl" />
+            ) : (
+              <BsSunFill className="text-2xl" />
+            )}
+          </button>
+          <CardWeather weather={weather} setWeather={setWeather} />
+        </>
       )}
     </main>
   );

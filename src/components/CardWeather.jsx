@@ -2,10 +2,14 @@ import { useState } from "react";
 import WeatherStats from "./WeatherStats";
 import axios from "axios";
 import { FiSearch } from "react-icons/fi";
+import { FaWind } from "react-icons/fa";
+import { WiHumidity } from "react-icons/wi";
+import { TbArrowsSplit2 } from "react-icons/tb";
 
 /* eslint-disable react/prop-types */
 const CardWeather = ({ weather, setWeather }) => {
   const [isCelsius, setIsCelsius] = useState(true);
+  <CardWeather weather={weather} setWeather={setWeather} />;
 
   const changeTempUnit = (temp) => {
     if (isCelsius) {
@@ -41,6 +45,7 @@ const CardWeather = ({ weather, setWeather }) => {
     "02d": "/few-clouds.png",
     "03d": "/scattered-clouds.png",
     "04d": "/broken-clouds.png",
+    "04n": "/broken-clouds.png",
     "09d": "/shower-rain.png",
     "10d": "/rain.png",
     "10n": "/rain.png",
@@ -61,61 +66,62 @@ const CardWeather = ({ weather, setWeather }) => {
             <input
               type="text"
               placeholder="Weather in your city"
-              className="rounded-full capitalize pl-3 "
+              className="rounded-full capitalize pl-3 dark:bg-black/60 transition-colors dark:text-white"
               id="city"
             />
             <div className="relative grid place-items-center">
               <input
                 type="submit"
                 value=""
-                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer z-10 opacity-80"
+                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer  opacity-80 dark:bg-black/60 transition-colors "
               />
               <FiSearch
-                className="cursor-pointer absolute"
+                className="cursor-pointer absolute dark:text-white "
                 onSubmit={handleSearch}
               />
             </div>
           </form>
-          <h3 className="text-2xl  text-black font-bold">
+          <h3 className="text-2xl  text-black font-bold dark:text-white ">
             {weather.name}, {weather.sys.country}
           </h3>
           <div className=" grid gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-[1fr_auto]">
             {/*Sección superior */}
-            <article className="grid relative grid-cols-2 bg-white/50 rounded-3xl p-5 pb-8 items-center min-w-[300px] sm:w-[400px] shadow-2xl">
-              <h4 className="col-span-2 capitalize text-gray-600 font-bold sm:text-lg">
+            <article className="grid relative grid-cols-[1fr_1fr] bg-white/50 rounded-3xl p-5 pb-8 items-center min-w-[300px] sm:w-[400px] shadow-2xl dark:bg-black/60 transition-colors">
+              <h4 className="col-span-2 capitalize text-gray-600 font-bold sm:text-lg dark:text-white">
                 {weather.weather[0].description}
               </h4>
-              <span className="text-8xl  font-light text-black p-3">
+              <span className="text-8xl sm:text-9xl  font-light text-black p-3 dark:text-white">
                 {changeTempUnit(weather.main.temp)}
               </span>
               <span
-                className="unit text-3xl top-16
-              sm:left-44 sm:top-24"
+                className="unit text-3xl top-16 left-29
+              sm:left-44 sm:top-32 dark:text-white"
               >
                 {isCelsius ? "°C" : "°F"}
               </span>
               <img
                 src={`${weatherIcons[weather.weather[0].icon]}`}
                 alt=""
-                className="w-20 self-center place-self-end sm:place-self-center sm:w-28 pr-1"
+                className="w-20 self-center place-self-end sm:place-self-center sm:w-28 pr-1 "
               />
             </article>
             {/*Sección inferior */}
-            <article className="bg-white/50 grid grid-cols-[repeat(3,1fr)] rounded-2xl px-4 py-3 text-black font-bold sm:grid-cols-1 sm:grid-rows-3 shadow-2xl ">
+            <article className="bg-white/50 grid grid-cols-[repeat(3,1fr)] rounded-2xl px-4 py-3 text-black font-bold sm:grid-cols-1 sm:grid-rows-3 shadow-2xl dark:bg-black/60 transition-colors dark:text-white">
               <WeatherStats
-                icon={"/wind.png"}
+                icon={<FaWind />}
                 value={weather.wind.speed}
                 unit={"m/s"}
               />
-              <div className="border-x-2 border-slate-600 px-4 py-5 flex item-center sm:border-x-0 sm:border-y-2 sm:px-0">
+              <div className="border-x-2 border-slate-600 px-2 py-5 flex item-center sm:border-x-0 sm:border-y-2 sm:px-0 dark:border-slate-100">
                 <WeatherStats
-                  icon={"/humidity.png"}
+                  icon={<WiHumidity />}
                   value={weather.main.humidity}
                   unit={"%"}
                 />
               </div>
+
               <WeatherStats
-                icon={"/pressure.png"}
+                icon={<TbArrowsSplit2 />}
                 value={weather.main.pressure}
                 unit={"hPa"}
               />
@@ -123,7 +129,7 @@ const CardWeather = ({ weather, setWeather }) => {
           </div>
           <button
             className="bg-white self-center
-            w-36 text-[#4580BA] py-1  font-bold rounded-2xl shadow-2xl"
+            w-36 text-[#4580BA] py-1  font-bold rounded-2xl shadow-2xl dark:text-white dark:bg-[#4580BA] transition-colors "
             onClick={handleChangeUnit}
           >
             {isCelsius ? "Change to °F" : "Change to °C"}
