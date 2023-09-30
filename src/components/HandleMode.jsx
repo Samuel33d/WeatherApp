@@ -5,7 +5,7 @@ const HandleMode = ({ handleChangeTheme, isLightMode }) => {
   return (
     <button
       onClick={handleChangeTheme}
-      className="bg-white/70 dark:bg-zinc-500/70 box-shadow p-3 rounded-[100%] transition-all z-50"
+      className="bg-white/70 dark:bg-[#4580BA] box-shadow p-3 rounded-[100%] transition-all z-50"
     >
       {isLightMode ? (
         <BsFillMoonFill className="fill-black text-2xl" />

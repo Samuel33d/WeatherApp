@@ -20,7 +20,7 @@ const FormWeather = ({ handleSearch }) => {
         <input
           type="submit"
           value=""
-          className="bg-white/70 w-6 h-6 p-5 rounded-full cursor-pointer dark:bg-zinc-500/80 transition-colors box-shadow "
+          className="bg-white/70 w-6 h-6 p-5 rounded-full cursor-pointer dark:bg-[#4580BA] transition-colors box-shadow "
         />
         <FiSearch
           className="cursor-pointer absolute dark:text-white  "
