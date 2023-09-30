@@ -68,7 +68,7 @@ function App() {
         <>
           <button
             onClick={handleChangeTheme}
-            className="bg-white dark:bg-black/40 p-4 rounded-[100%] transition-all"
+            className="bg-white dark:bg-black/40 p-3 rounded-[100%] transition-all"
           >
             {isLightMode ? (
               <BsFillMoonFill className="fill-black text-2xl" />

@@ -57,23 +57,24 @@ const CardWeather = ({ weather, setWeather }) => {
   return (
     <>
       {weather && (
+        
         <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px]">
           <form
             action=""
-            className="form grid grid-cols-[1fr_auto] gap-3 text-black min-w-[320px] sm:w-[500px] shadow-2xl "
+            className="form grid grid-cols-[1fr_auto] gap-3 text-black min-w-[320px] sm:w-[500px]  "
             onSubmit={handleSearch}
           >
             <input
               type="text"
               placeholder="Weather in your city"
-              className="rounded-full capitalize pl-3 dark:bg-black/60 transition-colors dark:text-white"
+              className="rounded-full capitalize pl-3 dark:bg-black/60 transition-colors dark:text-white shadow-2xl py-3"
               id="city"
             />
             <div className="relative grid place-items-center">
               <input
                 type="submit"
                 value=""
-                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer  opacity-80 dark:bg-black/60 transition-colors "
+                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer  opacity-80 dark:bg-black/60 transition-colors shadow-2xl "
               />
               <FiSearch
                 className="cursor-pointer absolute dark:text-white "
