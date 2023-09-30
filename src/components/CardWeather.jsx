@@ -109,7 +109,7 @@ const CardWeather = ({ weather, setWeather }) => {
           </div>
           <button
             className="box-shadow bg-white self-center
-            w-36 text-[#4580BA] py-1  font-bold rounded-2xl  dark:text-white dark:bg-[#4580BA] transition-colors "
+            w-36 text-[#4580BA] py-[8px]  font-medium rounded-[3rem]  dark:text-white dark:bg-[#4580BA] transition-colors "
             onClick={handleChangeUnit}
           >
             {isCelsius ? "Change to °F" : "Change to °C"}
