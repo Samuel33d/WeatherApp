@@ -57,7 +57,7 @@ const CardWeather = ({ weather, setWeather }) => {
   return (
     <>
       {weather && (
-        <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px]">
+        <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px] z-50">
           <form
             action=""
             className="form grid grid-cols-[1fr_auto] gap-3 text-black min-w-[320px] sm:w-[500px]  "
@@ -66,36 +66,37 @@ const CardWeather = ({ weather, setWeather }) => {
             <input
               type="text"
               placeholder="Weather in your city"
-              className="rounded-full capitalize pl-3 dark:bg-black/60 transition-colors dark:text-white shadow-2xl py-3"
+              className="rounded-full capitalize pl-3 
+              transition-colors dark:text-white box-shadow py-3  backdrop-blur-1x dark:bg-zinc-500/80 "
               id="city"
             />
             <div className="relative grid place-items-center">
               <input
                 type="submit"
                 value=""
-                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer  opacity-80 dark:bg-black/60 transition-colors shadow-2xl "
+                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer dark:bg-zinc-500/80 transition-colors box-shadow "
               />
               <FiSearch
-                className="cursor-pointer absolute dark:text-white "
+                className="cursor-pointer absolute dark:text-white  "
                 onSubmit={handleSearch}
               />
             </div>
           </form>
-          <h3 className="text-2xl  text-black font-bold dark:text-white ">
+          <h3 className="text-2xl  text-black font-bold dark:text-white sm:text-[32px] ">
             {weather.name}, {weather.sys.country}
           </h3>
           <div className=" grid gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-[1fr_auto]">
             {/*Sección superior */}
-            <article className="grid relative grid-cols-[1fr_1fr] bg-white/50 rounded-3xl p-5 pb-8 items-center min-w-[300px] sm:w-[400px] shadow-2xl dark:bg-black/60 transition-colors">
-              <h4 className="col-span-2 capitalize text-gray-600 font-bold sm:text-lg dark:text-white">
+            <article className="grid relative grid-cols-[1fr_1fr] bg-white/50 rounded-3xl p-5 pb-8  min-w-[300px] sm:w-[480px] box-shadow transition-colors dark:bg-zinc-500/80">
+              <h4 className="col-span-2 capitalize text-gray-600 text-lg font-medium sm:text-2xl dark:text-white">
                 {weather.weather[0].description}
               </h4>
               <span className="text-8xl sm:text-9xl  font-light text-black p-3 dark:text-white">
                 {changeTempUnit(weather.main.temp)}
               </span>
               <span
-                className="unit text-3xl top-16 left-29
-              sm:left-44 sm:top-32 dark:text-white"
+                className="unit text-5xl top-16 left-29
+              sm:left-52 sm:top-28 dark:text-white"
               >
                 {isCelsius ? "°C" : "°F"}
               </span>
@@ -106,7 +107,7 @@ const CardWeather = ({ weather, setWeather }) => {
               />
             </article>
             {/*Sección inferior */}
-            <article className="bg-white/50 grid grid-cols-[repeat(3,1fr)] rounded-2xl px-4 py-3 text-black font-bold sm:grid-cols-1 sm:grid-rows-3 shadow-2xl dark:bg-black/60 transition-colors dark:text-white">
+            <article className="bg-white/50 grid grid-cols-[repeat(3,1fr)] rounded-2xl px-4 py-3 text-black font-bold sm:grid-cols-1 box-shadow sm:grid-rows-3 transition-colors dark:text-white dark:bg-zinc-500/80">
               <WeatherStats
                 icon={<FaWind />}
                 value={weather.wind.speed}
@@ -128,8 +129,8 @@ const CardWeather = ({ weather, setWeather }) => {
             </article>
           </div>
           <button
-            className="bg-white self-center
-            w-36 text-[#4580BA] py-1  font-bold rounded-2xl shadow-2xl dark:text-white dark:bg-[#4580BA] transition-colors "
+            className="box-shadow bg-white self-center
+            w-36 text-[#4580BA] py-1  font-bold rounded-2xl  dark:text-white dark:bg-[#4580BA] transition-colors "
             onClick={handleChangeUnit}
           >
             {isCelsius ? "Change to °F" : "Change to °C"}

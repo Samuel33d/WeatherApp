@@ -9,3 +9,8 @@ h3 {
     color: black;
     font-weight: 500;
 }
+
+.box-shadow {
+    box-shadow: 5px 6px 16px black;
+
+}

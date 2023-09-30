@@ -66,14 +66,21 @@ function App() {
         <LoadApp />
       ) : (
         <>
+          {isLightMode ? (
+            ""
+          ) : (
+            <div className="bg-black/30 min-h-screen fixed  z-auto w-[100%] transition-all top-0 left-0"></div>
+          )}
           <button
             onClick={handleChangeTheme}
-            className="bg-white dark:bg-black/40 p-3 rounded-[100%] transition-all"
+            className="bg-white dark:bg-zinc-500/70 box-shadow p-3 rounded-[100%] transition-all z-50"
           >
             {isLightMode ? (
               <BsFillMoonFill className="fill-black text-2xl" />
             ) : (
-              <BsSunFill className="text-2xl" />
+              <>
+                <BsSunFill className="text-2xl" />
+              </>
             )}
           </button>
           <CardWeather weather={weather} setWeather={setWeather} />
