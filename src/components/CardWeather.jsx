@@ -44,6 +44,7 @@ const CardWeather = ({ weather, setWeather }) => {
     "01d": "/clear-sky.png",
     "02d": "/few-clouds.png",
     "03d": "/scattered-clouds.png",
+    "03n": "/scattered-clouds.png",
     "04d": "/broken-clouds.png",
     "04n": "/broken-clouds.png",
     "09d": "/shower-rain.png",

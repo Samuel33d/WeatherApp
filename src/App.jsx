@@ -20,6 +20,7 @@ function App() {
     "01d": "/bgSunDay.jpeg",
     "02d": "/bgfew-clouds.jpeg",
     "03d": "/bgscattered-clouds.jpeg",
+    "03n": "/bgscattered-clouds.jpeg",
     "04d": "/bgbroken-clouds.jpeg",
     "04n": "/bgbroken-clouds.jpeg",
     "09d": "/bgshower-rain.jpeg",
