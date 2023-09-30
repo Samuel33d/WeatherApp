@@ -3,8 +3,8 @@ import "./App.css";
 import axios from "axios";
 import CardWeather from "./components/CardWeather";
 import LoadApp from "./components/LoadApp";
-import { BsFillMoonFill } from "react-icons/bs";
-import { BsSunFill } from "react-icons/bs";
+import Overlay from "./components/Overlay";
+import HandleMode from "./components/HandleMode";
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -59,7 +59,7 @@ function App() {
       }
       className={`${
         isLightMode ? "" : "dark"
-      } font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-top gap-6 sm:bg-cover ${
+      } font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-center gap-6 sm:bg-cover ${
         weather === null ? "" : "p-3"
       }`}
     >
@@ -67,23 +67,11 @@ function App() {
         <LoadApp />
       ) : (
         <>
-          {isLightMode ? (
-            ""
-          ) : (
-            <div className="bg-black/30 min-h-screen fixed  z-auto w-[100%] transition-all top-0 left-0"></div>
-          )}
-          <button
-            onClick={handleChangeTheme}
-            className="bg-white dark:bg-zinc-500/70 box-shadow p-3 rounded-[100%] transition-all z-50"
-          >
-            {isLightMode ? (
-              <BsFillMoonFill className="fill-black text-2xl" />
-            ) : (
-              <>
-                <BsSunFill className="text-2xl" />
-              </>
-            )}
-          </button>
+          {isLightMode ? "" : <Overlay />}
+          <HandleMode
+            handleChangeTheme={handleChangeTheme}
+            isLightMode={isLightMode}
+          />
           <CardWeather weather={weather} setWeather={setWeather} />
         </>
       )}

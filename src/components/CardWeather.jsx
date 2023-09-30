@@ -1,10 +1,11 @@
 import { useState } from "react";
 import WeatherStats from "./WeatherStats";
 import axios from "axios";
-import { FiSearch } from "react-icons/fi";
 import { FaWind } from "react-icons/fa";
 import { WiHumidity } from "react-icons/wi";
 import { TbArrowsSplit2 } from "react-icons/tb";
+
+import FormWeather from "./FormWeather";
 
 /* eslint-disable react/prop-types */
 const CardWeather = ({ weather, setWeather }) => {
@@ -59,30 +60,7 @@ const CardWeather = ({ weather, setWeather }) => {
     <>
       {weather && (
         <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px] z-50">
-          <form
-            action=""
-            className="form grid grid-cols-[1fr_auto] gap-3 text-black min-w-[320px] sm:w-[500px]  "
-            onSubmit={handleSearch}
-          >
-            <input
-              type="text"
-              placeholder="Weather in your city"
-              className="rounded-full capitalize pl-3 
-              transition-colors dark:text-white box-shadow py-3  backdrop-blur-1x dark:bg-zinc-500/80 "
-              id="city"
-            />
-            <div className="relative grid place-items-center">
-              <input
-                type="submit"
-                value=""
-                className="bg-white w-6 h-6 p-5 rounded-full cursor-pointer dark:bg-zinc-500/80 transition-colors box-shadow "
-              />
-              <FiSearch
-                className="cursor-pointer absolute dark:text-white  "
-                onSubmit={handleSearch}
-              />
-            </div>
-          </form>
+          <FormWeather handleSearch={handleSearch} />
           <h3 className="text-2xl  text-black font-bold dark:text-white sm:text-[32px] ">
             {weather.name}, {weather.sys.country}
           </h3>
