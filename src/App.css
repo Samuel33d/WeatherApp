@@ -14,3 +14,7 @@ h3 {
     box-shadow: 5px 6px 16px black;
 
 }
+
+input:focus {
+    outline: 1px solid black;
+}
