@@ -57,7 +57,6 @@ const CardWeather = ({ weather, setWeather }) => {
   return (
     <>
       {weather && (
-        
         <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px]">
           <form
             action=""
