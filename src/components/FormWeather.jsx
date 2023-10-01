@@ -39,7 +39,7 @@ const FormWeather = ({ setWeather }) => {
         <input
           type="submit"
           value=""
-          className="formCity  w-11  h-11 p-5 rounded-full z-10 cursor-pointer  transition-colors box-shadow  opacity-100]"
+          className="formCity  w-11  h-11 p-5 rounded-full z-10 cursor-pointer  transition-colors box-shadow"
         />
       </div>
     </form>

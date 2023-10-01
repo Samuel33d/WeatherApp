@@ -81,10 +81,7 @@ function App() {
       ) : (
         <>
           {isLightMode ? "" : <Overlay />}
-          <HandleMode
-            handleChangeTheme={handleChangeTheme}
-            isLightMode={isLightMode}
-          />
+          <HandleMode handleChangeTheme={handleChangeTheme} />
           <CardWeather weather={weather} setWeather={setWeather} />
         </>
       )}

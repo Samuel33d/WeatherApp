@@ -1,19 +1,10 @@
-import { BsFillMoonFill } from "react-icons/bs";
-import { BsSunFill } from "react-icons/bs";
+import CustomizedSwitches from "./Switch";
 
-const HandleMode = ({ handleChangeTheme, isLightMode }) => {
+// eslint-disable-next-line react/prop-types
+const HandleMode = ({ handleChangeTheme }) => {
   return (
-    <button
-      onClick={handleChangeTheme}
-      className="bg-white/70 dark:bg-[#4580BA] box-shadow p-3 rounded-[100%] transition-all z-50"
-    >
-      {isLightMode ? (
-        <BsFillMoonFill className="fill-black text-2xl" />
-      ) : (
-        <>
-          <BsSunFill className="text-2xl" />
-        </>
-      )}
+    <button onClick={handleChangeTheme}>
+      <CustomizedSwitches />
     </button>
   );
 };
