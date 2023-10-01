@@ -16,20 +16,20 @@ function App() {
   };
 
   let weatherBg = {
-    "01n": "/bgSunDay.jpeg",
-    "01d": "/bgSunDay.jpeg",
-    "02d": "/bgfew-clouds.jpeg",
-    "02n": "/bgfew-clouds.jpeg",
-    "03d": "/bgscattered-clouds.jpeg",
-    "03n": "/bgscattered-clouds.jpeg",
-    "04d": "/bgbroken-clouds.jpeg",
-    "04n": "/bgbroken-clouds.jpeg",
-    "09d": "/bgshower-rain.jpeg",
-    "10d": "/bgrain.jpeg",
+    "01n": "/bgSunDay.webp",
+    "01d": "/bgSunDay.webp",
+    "02d": "/bgfew-clouds.webp",
+    "02n": "/bgfew-clouds.webp",
+    "03d": "/bgscattered-clouds.webp",
+    "03n": "/bgscattered-clouds.webp",
+    "04d": "/bgbroken-clouds.webp",
+    "04n": "/bgbroken-clouds.webp",
+    "09d": "/bgshower-rain.webp",
+    "10d": "/bgrain.webp",
     "10n": "/bgrain.jpeg",
-    "11d": "/bgthunderstorm.jpeg",
-    "13d": "/bgsnow.jpeg",
-    "50d": "/bgmist.jpeg",
+    "11d": "/bgthunderstorm.webp",
+    "13d": "/bgsnow.webp",
+    "50d": "/bgmist.webp",
   };
 
   const success = (pos) => {
@@ -54,7 +54,7 @@ function App() {
 
     axios
       .get(API_WEATHER_ENDPOINT)
-      .then(({ data }) => setTimeout(() => setWeather(data), 500))
+      .then(({ data }) => setTimeout(() => setWeather(data), 200))
       .catch((err) => console.log(err));
   };
   useEffect(() => {
