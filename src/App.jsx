@@ -19,6 +19,7 @@ function App() {
     "01n": "/bgSunDay.jpeg",
     "01d": "/bgSunDay.jpeg",
     "02d": "/bgfew-clouds.jpeg",
+    "02n": "/bgfew-clouds.jpeg",
     "03d": "/bgscattered-clouds.jpeg",
     "03n": "/bgscattered-clouds.jpeg",
     "04d": "/bgbroken-clouds.jpeg",
@@ -44,8 +45,20 @@ function App() {
       .catch((err) => console.log(err));
   };
 
+  const err = () => {
+    const lat = 40.71427;
+    const lon = -74.00597;
+    const API_KEY = "de90cb527a5359d58a9cce5f2cb83064";
+    const lang = "en";
+    const API_WEATHER_ENDPOINT = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&lang=${lang}`;
+
+    axios
+      .get(API_WEATHER_ENDPOINT)
+      .then(({ data }) => setTimeout(() => setWeather(data), 500))
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
+    navigator.geolocation.getCurrentPosition(success, err);
   }, []);
 
   return (

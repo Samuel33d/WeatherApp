@@ -1,6 +1,5 @@
 import { useState } from "react";
 import WeatherStats from "./WeatherStats";
-import axios from "axios";
 import { FaWind } from "react-icons/fa";
 import { WiHumidity } from "react-icons/wi";
 import { TbArrowsSplit2 } from "react-icons/tb";
@@ -27,23 +26,11 @@ const CardWeather = ({ weather, setWeather }) => {
     changeTempUnit(weather.main.temp);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const city = e.target.city.value;
-    const API_KEY = "de90cb527a5359d58a9cce5f2cb83064";
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
-      )
-      .then(({ data }) => setWeather(data))
-      .catch((err) => console.log(err));
-    document.querySelector(".form").reset();
-  };
-
   let weatherIcons = {
     "01n": "/clear-sky.png",
     "01d": "/clear-sky.png",
     "02d": "/few-clouds.png",
+    "02n": "/few-clouds.png",
     "03d": "/scattered-clouds.png",
     "03n": "/scattered-clouds.png",
     "04d": "/broken-clouds.png",
@@ -60,7 +47,7 @@ const CardWeather = ({ weather, setWeather }) => {
     <>
       {weather && (
         <section className="flex flex-col gap-5 sm:gap-10 text-center place-items-center max-w-[650px] z-50">
-          <FormWeather handleSearch={handleSearch} />
+          <FormWeather setWeather={setWeather} />
           <h3 className="text-2xl  text-black font-bold dark:text-white sm:text-[32px] ">
             {weather.name}, {weather.sys.country}
           </h3>
@@ -70,7 +57,7 @@ const CardWeather = ({ weather, setWeather }) => {
               <h4 className="col-span-2 capitalize text-gray-600 text-lg font-medium sm:text-2xl dark:text-white">
                 {weather.weather[0].description}
               </h4>
-              <span className="text-8xl sm:text-9xl  font-light text-black p-3 dark:text-white">
+              <span className="text-8xl sm:text-9xl  font-light text-black p-3 sm:px-10 dark:text-white">
                 {changeTempUnit(weather.main.temp)}
               </span>
               <span
