@@ -34,7 +34,7 @@ const FormWeather = ({ setWeather }) => {
       <div className=" relative grid place-items-center">
         <FiSearch
           id="fiSearch"
-          className="cursor-pointer absolute bg-white/70 w-11  h-11 p-3 rounded-full dark:bg-[rgb(69,128,186)] dark:text-white"
+          className="cursor-pointer absolute bg-white/70 w-11  h-11 p-3 rounded-full dark:bg-zinc-500/80 dark:text-white"
         />
         <input
           type="submit"
