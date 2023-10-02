@@ -16,20 +16,25 @@ function App() {
   };
 
   let weatherBg = {
-    "01n": "/bgSunDay.webp",
     "01d": "/bgSunDay.webp",
     "02d": "/bgfew-clouds.webp",
-    "02n": "/bgfew-clouds.webp",
     "03d": "/bgscattered-clouds.webp",
-    "03n": "/bgscattered-clouds.webp",
     "04d": "/bgbroken-clouds.webp",
-    "04n": "/bgbroken-clouds.webp",
     "09d": "/bgshower-rain.webp",
     "10d": "/bgrain.webp",
-    "10n": "/bgrain.jpeg",
     "11d": "/bgthunderstorm.webp",
     "13d": "/bgsnow.webp",
     "50d": "/bgmist.webp",
+
+    "01n": "/bgclear-night.jpg",
+    "02n": "/bgfew-clouds-night.jpg",
+    "03n": "/bgscattered-clouds-night.jpg",
+    "04n": "/bgscattered-clouds-night.jpg",
+    "09n": "/bgshower-rain-night.jpg",
+    "10n": "/bgrain-night.jpg",
+    "11n": "/bgthunderstorm-night.jpg",
+    "13n": "/bgsnow-night.jpg",
+    "50n": "/bg-night.jpg",
   };
 
   const success = (pos) => {
@@ -72,7 +77,7 @@ function App() {
       }
       className={`${
         isLightMode ? "" : "dark"
-      } font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-center gap-6 sm:bg-cover ${
+      } font-['Lato'] flex flex-col justify-center items-center min-h-screen text-white  bg-cover bg-top gap-6  ${
         weather === null ? "" : "p-3"
       }`}
     >

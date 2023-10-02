@@ -27,20 +27,25 @@ const CardWeather = ({ weather, setWeather }) => {
   };
 
   let weatherIcons = {
-    "01n": "/clear-sky.png",
     "01d": "/clear-sky.png",
     "02d": "/few-clouds.png",
-    "02n": "/few-clouds.png",
     "03d": "/scattered-clouds.png",
-    "03n": "/scattered-clouds.png",
     "04d": "/broken-clouds.png",
-    "04n": "/broken-clouds.png",
     "09d": "/shower-rain.png",
     "10d": "/rain.png",
-    "10n": "/rain.png",
     "11d": "/thunderstorm.png",
     "13d": "/snow.png",
     "50d": "/mist.png",
+
+    "01n": "/clear-sky-night.png",
+    "02n": "/few-clouds-night.png",
+    "03n": "/scattered-clouds.png",
+    "04n": "/broken-clouds.png",
+    "09n": "/shower-rain-night.png",
+    "10n": "/rain.png",
+    "11n": "/thunderstorm.png",
+    "13n": "/snow.png",
+    "50n": "/mist.png",
   };
 
   return (
